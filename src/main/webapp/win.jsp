@@ -26,6 +26,12 @@ body{
     <br>
       <br>
   <a href="home.html">PLAY AGAIN</a>
+  <br>
+  </div>
+  <div style="color: white;" class="text-center">
+			<% HttpSession httpSession = request.getSession();
+			String cpu = (String) httpSession.getAttribute("cpu");%>
+			<h5>CPU CHOOSED : <%= cpu %></h5>
 </div>
 </body>
 </html>

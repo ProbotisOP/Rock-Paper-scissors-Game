@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet("/optionchk")
 public class optionCheck extends HttpServlet {
@@ -19,29 +19,34 @@ public class optionCheck extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		response.setIntHeader("Refresh", 5);
+		
+		HttpSession httpSession = request.getSession();
+		
 
 		Random random = new Random();
 		int cpu = random.nextInt(3);
 		
-		request.setAttribute("cpu", cpu);
-
-
+		
+		
 		switch (cpu) {
 		case 0:
 			System.out.print("CPU CHOOSE ROCK ");
 			System.out.println();
+			httpSession.setAttribute("cpu", "ROCK");
 
 			break;
 
 		case 1:
 			System.out.print("CPU CHOOSE PAPER ");
 			System.out.println();
+			httpSession.setAttribute("cpu", "PAPER");
 			
 
 			break;
 		case 2:
 			System.out.print("CPU CHOOSE SCISSOR ");
 			System.out.println();
+			httpSession.setAttribute("cpu", "SCISSOR");
 
 			break;
 

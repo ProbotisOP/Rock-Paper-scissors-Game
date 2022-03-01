@@ -32,6 +32,10 @@ body {
 		<img src="https://media.giphy.com/media/e8SjENzn3S8WzMUAMc/giphy.gif"
 			class="rounded" alt="..."> <br> <br> <br> <a
 			href="home.html">PLAY AGAIN</a>
+			<br>
+			<% HttpSession httpSession = request.getSession();
+			String cpu = (String) httpSession.getAttribute("cpu");%>
+			<h5>CPU CHOOSES: <%= cpu %></h5>
 	</div>
 
 </body>
